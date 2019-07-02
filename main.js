@@ -14,10 +14,10 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     console.log('Harvesters: ' + harvesters.length);
 
-    if (harvesters.length <= 2) {
+    if (harvesters.length <=2) {
         var newName = 'Harvester' + Game.time;
         console.log('Spawning new harvester: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE,WORK, CARRY, MOVE], newName,
             { memory: { role: 'harvester' } });
     }
     //创建upgrader
@@ -27,17 +27,17 @@ module.exports.loop = function () {
     if (upgraders.length <= 3) {
         var newName = 'Upgraders' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE,WORK, CARRY, MOVE], newName,
             { memory: { role: 'upgrader' } });
     }
     //创建builder
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     console.log('Builders: ' + builders.length);
 
-    if (builders.length<=4) {
+    if (builders.length<=3) {
         var newName = 'Builders' + Game.time;
         console.log('Spawning new builder: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], newName,
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE,WORK, CARRY, MOVE], newName,
             { memory: { role: 'builder' } });
     }
 
